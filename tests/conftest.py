@@ -1,6 +1,8 @@
 import pytest as pytest
 from selenium import webdriver
 
+from api.api_client import ApiClient
+
 
 @pytest.fixture(scope="function")
 def username_password():
@@ -14,3 +16,8 @@ def driver():
     _driver = webdriver.Chrome()
     yield _driver
     _driver.quit()
+
+
+@pytest.fixture
+def api():
+    return ApiClient()
